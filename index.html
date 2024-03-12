@@ -1,0 +1,412 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script type="text/javascript">
+    google.load("jquery", "1.3.2");
+</script>
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+<style type="text/css">
+    body {
+        font-family: Arial, sans-serif;
+        font-weight: 400;
+        font-size: 18px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 1200px;
+    }
+    
+    a:link,
+    a:visited {
+        color: #1F407A;
+        text-decoration: none;
+    }
+    
+    a:hover {
+        color: #1269B0;
+    }
+    
+    h1,
+    h2,
+    h3,
+    h4 {
+        text-align: center;
+    }
+    
+    h1 {
+        font-weight: 450;
+        line-height: 1.15em;
+    }
+    
+    h2 {
+        font-size: 1.75em;
+        font-weight: 200;
+        margin: 16px 0px 4px 0px;
+    }
+    
+    h3 {
+        font-weight: 300;
+        font-size: 1.15em;
+    }
+    
+    h4 {
+        font-weight: 400;
+        font-size: 1em;
+    }
+    
+    .title {
+        padding: 20px 0px 20px 0px;
+    }
+    
+    section {
+        margin: 16px 0px 16px 0px;
+        text-align: justify;
+        clear: both;
+        line-height: 1.25em;
+    }
+    
+    .author-row {
+        font-size: 20px;
+    }
+    
+    .affil-row {
+        font-size: 20px;
+    }
+    
+    .teaser {
+        max-width: 100%;
+    }
+    
+    .text-center {
+        text-align: center;
+    }
+    
+    .screenshot {
+        width: 256px;
+        border: 1px solid #ddd;
+    }
+    
+    .screenshot-el {
+        margin-bottom: 16px;
+    }
+    
+    hr {
+        height: 1px;
+        border: 0;
+        border-top: 1px solid #ddd;
+        margin: 0;
+    }
+    
+    .material-icons {
+        vertical-align: -6px;
+    }
+    
+    p {
+        line-height: 1.25em;
+    }
+    
+    .caption {
+        font-size: 14px;
+        /*font-style: italic;*/
+        color: #666;
+        text-align: left;
+        margin-top: 6px;
+        margin-bottom: 8px;
+    }
+    
+    figure {
+        display: block;
+        margin: auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    
+    #bibtex pre {
+        font-size: 14px;
+        background-color: #eee;
+        padding: 16px;
+    }
+    
+    .flex-row {
+        display: flex;
+        padding-top: 0px;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        line-height: 1.25em;
+    }
+    
+    .paper-btn {
+        position: relative;
+        text-align: center;
+        display: block;
+        margin: 30px auto;
+        padding: 8px 8px;
+        border-width: 0;
+        outline: none;
+        border-radius: 2px;
+        background-color: #2269a0;
+        color: #d5e9ee !important;
+        font-size: 20px;
+        width: 100px;
+        font-weight: 600;
+    }
+    
+    .paper-btn:hover {
+        opacity: 0.85;
+    }
+    
+    .container {
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 16px;
+        padding-right: 16px;
+        width: 1000px;
+        text-align: center;
+    }
+    
+    .col-6 {
+        width: 16%;
+        float: left;
+    }
+    
+    .col-5 {
+        width: 20%;
+        float: left;
+    }
+    
+    .col-4 {
+        width: 25%;
+        float: left;
+    }
+    
+    .col-3 {
+        width: 33%;
+        float: left;
+    }
+    
+    .col-2 {
+        width: 50%;
+        float: left;
+    }
+    
+    .author-row p {
+        text-align: center;
+        line-height: 1.0;
+    }
+    
+    .author-row img {
+        width: 80%;
+        border-radius: 100%;
+    }
+    
+    .author-row,
+    .affil-row {
+        overflow: auto;
+        margin-top: 10px;
+    }
+    
+    .glb-row {
+        overflow: auto;
+        margin-top: 20px;
+        width: 1200px;
+    }
+    
+    .centered {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .button_row {
+        display: flex;
+        width: 600px;
+    }
+    
+    .bs {
+        background-color: rgb(48, 10, 92);
+        border: 0px solid rgb(195, 195, 195);
+        color: white;
+        width: 120px;
+        height: 40px;
+        font-size: 0.9em;
+        font-weight: 500;
+        margin: 15px;
+        box-shadow: 2px 2px rgb(195, 195, 195), 2px 2px rgb(195, 195, 195), 1px 1px rgb(195, 195, 195);
+    }
+    
+    .bs:hover {
+        opacity: 0.85;
+    }
+    li{
+        margin: 10px 0;
+    }
+</style>
+
+<script type="text/javascript" src="../js/hidebib.js"></script>
+
+<link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,600,400italic,600italic,300,300italic' rel='stylesheet' type='text/css'>
+
+<head>
+    <title>From Coarse to Fine-Grained Open-Set Recognition</title>
+    <meta property="og:description" content="From Coarse to Fine-Grained Open-Set Recognition" />
+    <script src="https://kit.fontawesome.com/6e21e18363.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@nicolangnl">
+    <meta name="twitter:title" content="From Coarse to Fine-Grained Open-Set Recognition">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="assets/figures/teaser-osr-granularity.png">
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="title">
+            <h1>From Coarse to Fine-Grained Open-Set Recognition</h1>
+        </div>
+
+        <div class="centered">
+            <div class="author-row">
+                <div class="col-6 text-center">
+                    <a href="https://langnico.github.io/"><img src="assets/authors/nico.jpg">
+                        <p>Nico Lang<sup>1</sup></p>
+                    </a>
+                </div>
+                <div class="col-6 text-center">
+                    <a href="https://vesteinn.is/"><img src="assets/authors/vesteinn.jpg">
+                        <p>Vésteinn Snæbjarnarson<sup>1</sup></p>
+                    </a>
+                </div>
+                <div class="col-6 text-center">
+                    <a href="https://elijahcole.me/"><img src="assets/authors/elijah.jpg">
+                        <p>Elijah Cole<sup>2</sup></p>
+                    </a>
+                </div>
+                <div class="col-6 text-center">
+                    <a href="https://homepages.inf.ed.ac.uk/omacaod/"><img src="assets/authors/oisin.jpg">
+                        <p>Oisin Mac Aodha<sup>3</sup></p>
+                    </a>
+                </div>
+                <div class="col-6 text-center">
+                    <a href="https://christian-igel.github.io/"><img src="assets/authors/christian.jpg">
+                        <p>Christian Igel<sup>1</sup></p>
+                    </a>
+                </div>
+                <div class="col-6 text-center">
+                    <a href="https://sergebelongie.github.io/"><img src="assets/authors/serge.jpg">
+                        <p>Serge Belongie<sup>1</sup></p>
+                    </a>
+                </div>
+                
+            </div>
+            
+            <div class="affil-row">
+                <a href="https://di.ku.dk/english/"><sup>1</sup>University of Copenhagen</a> 
+                &nbsp; 
+                <a href="https://www.altoslabs.com/"><sup>2</sup>Altos Labs</a>
+                &nbsp; 
+                <a href="https://www.ed.ac.uk/informatics"><sup>3</sup>University of Edinburgh</a>
+            </div>
+            <!--
+            <div class="affil-row">
+                <div class="col-3 text-center"><a href="https://di.ku.dk/english/"><sup>1</sup>University of Copenhagen</a></div>
+                <div class="col-3 text-center"><a href="https://www.altoslabs.com/"><sup>2</sup>Altos Labs</a></div>
+                <div class="col-3 text-center"><a href="https://www.ed.ac.uk/informatics"><sup>3</sup>University of Edinburgh</a></div>
+            </div>
+            -->
+            <p></p>
+            <div class="conference-row">
+                <div class="col-1 text-center">
+                    <a href="https://cvpr2023.thecvf.com/Conferences/2024">CVPR 2024</a>
+                </div>
+            </div>
+
+        </div>
+        <p></p>
+
+        <div class="parent">
+            <!-- <a href=""><button class="bs"><span class="fa fa-file-pdf-o fa-fw"></span> Paper</button></a> -->
+            <a href=""><button class="bs"><span class="fa fa-file-pdf-o fa-fw"></span> arxiv</button></a>
+            <!-- <a href=""><button class="bs"><span class="fa"></span> Demo App</button></a> -->
+            <a href=""><button class="bs"><span class="fa fa-database fa-fw"></span> Data</button></a>
+            <a href=""><button class="bs"><span class="fa fa-github fa-fw"></span> Code</button></a>
+        </div>
+        <p></p>
+        <div class="col-1 text-center">(Code and dataset coming soon)</div>
+        
+        <section id="teaser">
+            <img class="centered" width="60%" src="assets/figures/teaser-osr-granularity.png">
+            <p class="caption">
+                <div stype=font-size:10px>
+                    <b>Granularity and semantic similarity are understudied confounders in open-set recognition (OSR).</b> We show that careful attention to these factors is instrumental in answering questions such as: Why is my supervised model not performing well in open-set recognition? What is the best OSR scoring method? Do hierarchical representations improve OSR? For all these questions, the answer depends on the granularity of the studied problem.
+                </div>
+            </p>
+        </section>
+        
+        <br>
+        <h2>Abstract</h2>
+        <hr>
+        <section id="abstract">
+            <div style="font-size:20px">
+                Open-set recognition (OSR) methods aim to identify whether or not a test example belongs to a category observed during training. Depending on how visually similar a test example is to the training categories, the OSR task can be easy or extremely challenging. However, the vast majority of previous work has studied OSR in the presence of large, coarse-grained semantic shifts. In contrast, many real-world problems are inherently fine-grained, which means that test examples may be highly visually similar to the training categories. Motivated by this observation, we investigate three aspects of OSR: label granularity, similarity between the open- and closed-sets, and the role of hierarchical supervision during training. To study these dimensions, we curate new open-set splits of a large fine-grained visual categorization dataset. Our analysis results in several interesting findings, including: (i) the best OSR method to use is heavily dependent on the degree of semantic shift present, and (ii) hierarchical representation learning can improve coarse-grained OSR, but has little effect on fine-grained OSR performance. To further enhance fine-grained OSR performance, we propose a hierarchy-adversarial learning method to discourage hierarchical structure in the representation space, which results in a perhaps counter-intuitive behaviour, and a relative improvement in fine-grained OSR of up to 2% in AUROC and 7% in AUPR over standard training.
+        </section>
+        <br>
+        <h2>Methodology</h2>
+        <hr>
+        
+        <section id="method">
+            <div style="font-size:20px">
+                We make the following contributions:
+                <ol>
+                    <li>We demonstrate that the choice of the best scoring rule depends on the semantic similarity between the closed- and open-set and that familiarity scores perform best in fine-grained OSR.</li>
+                    <li>We explore the impact of supervision granularity and show that fine-grained supervision improves OSR per- formance even for large semantic shifts.</li>
+                    <li>We explore the role of hierarchical representations and introduce hierarchy-adversarial learning to improve fine-grained OSR by discouraging hierarchical structure.</li>
+                    <li>We introduce iNat2021-OSR, a benchmark with curated open-set splits for the iNat2021 dataset for two taxa: birds and insects. This enables the study of OSR along seven discrete hops that encode the semantic distance from coarse-grained (7-hop) to fine-grained (1-hop).</li>
+                  </ol>  
+            </div>
+        </section>
+        
+        <section id="method">
+                <img class="centered" width="100%" src="assets/figures/method-osr-granularity.png">
+            </a>
+            <p class="caption">
+                <div stype=font-size:10px>
+                    <b>Training strategies.</b> We train and compare learning strategies with (a) separate models for each granularity (supervision granularity), (b) single models that predict all levels of granularities (hierarchy-supportive), and (c) single models that discourage prediction capabilities of all but the finest granularity (hierarchy-adversarial). To discourage hierarchical structure in the representations, we use a gradient reversal layer from unsupervised domain adaptation, to reverse gradients for the classification heads of coarser granularities.
+                </div>
+            </p>
+        </section>
+        <!--
+        <div class="container">
+            <h2>License</h2>
+            <hr>
+            <section id="license">
+            <div style="font-size:20px">
+            TODO LICENSE
+            </section>
+        </div>
+        <br>
+        -->
+        <div class="container">
+            <h2>Citation</h2>
+            <hr>
+            <section id="citation">
+            <div style="font-size:20px">
+                Nico Lang, Vésteinn Snæbjarnarson, Elijah Cole, Oisin Mac Aodha, Christian Igel, and Serge Belongie. (2024) From Coarse to Fine-Grained Open-Set Recognition. Computer Vision and Pattern Recognition (CVPR), accepted
+            </section>
+            <section id="bibtex">
+                <pre><code>
+@inproceedings{lang2024osr,
+    title={From Coarse to Fine-Grained Open-Set Recognition},
+    author={Lang, Nico and Snæbjarnarson, Vésteinn and Cole, Elijah and Mac Aodha, Oisin and 
+            Igel, Christian and Belongie, Serge},
+    booktitle={Proceedings of the IEEE/CVF conference on computer vision and pattern recognition},
+    year={2024}
+}
+                </code></pre>
+            </section>
+        </div>
+        
+</body>
+
+</html>
